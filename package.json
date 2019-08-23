@@ -9,6 +9,8 @@
   "devDependencies": {},
   "scripts": {
     "server": "cd server/ && yarn build && yarn start",
+    "client": "cd client/ && yarn start",
+    "build:client": "cd client/ && yarn build",
     "server:dev": "cd server/ && yarn dev",
     "start": "concurrently \"yarn server\" \"yarn client\"",
     "dev": "concurrently \"yarn server:dev\" \"yarn client\"",
