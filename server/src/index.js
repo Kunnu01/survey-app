@@ -3,7 +3,6 @@ import router from './router';
 import mongoose from 'mongoose';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
-import keys from './config/keys';
 import 'dotenv/config';
 import './services/passport';
 
