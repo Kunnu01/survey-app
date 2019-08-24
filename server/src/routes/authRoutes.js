@@ -1,4 +1,3 @@
-
 import * as express from 'express';
 import passport from 'passport';
 
@@ -12,5 +11,13 @@ authRouter.get(
 );
 
 authRouter.get('/google/callback', passport.authenticate('google'));
+
+authRouter.get('/logout', (req, res) => {
+    req.logOut();
+});
+
+authRouter.get('/current_user', (req, res) => {
+    res.send(req.user);
+});
 
 export default authRouter;

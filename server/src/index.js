@@ -1,6 +1,9 @@
 import express from 'express';
 import router from './router';
 import mongoose from 'mongoose';
+import cookieSession from 'cookie-session';
+import passport from 'passport';
+import keys from './config/keys';
 import 'dotenv/config';
 import './services/passport';
 
@@ -20,6 +23,14 @@ mongoose.connect(
 
 const app = express();
 
+app.use(
+    cookieSession({
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        keys: [process.env.cookieKey],
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(router);
 
 const port = process.env.PORT || 5000;
